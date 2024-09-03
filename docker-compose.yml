@@ -1,0 +1,22 @@
+version: '3'
+services:
+  apache:
+    build: 
+      context: ./php
+    ports:
+      - 8080:80
+    volumes:
+      - ./php/html:/var/www/html
+
+  mysql:
+    build:
+      context: ./mysql
+    ports:
+      - 33006:3306
+    volumes:
+      - ./mysql/seed:/docker-entrypoint-initdb.d 
+      - ./mysql/db:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    restart: always
