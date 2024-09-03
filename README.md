@@ -1,1 +1,1 @@
-<h2>Dockerでのphp、Apache、ＭySQLの環境になります。</h2>
+<h2>DockerでのPHP、Apache、ＭySQLの環境になります。</h2>
