@@ -1,7 +1,7 @@
 version: '3'
 services:
   apache:
-    build: 
+    build:
       context: ./php
     ports:
       - 8080:80
@@ -11,10 +11,11 @@ services:
   mysql:
     build:
       context: ./mysql
+    platform: linux/x86_64
     ports:
       - 33006:3306
     volumes:
-      - ./mysql/seed:/docker-entrypoint-initdb.d 
+      - ./mysql/seed:/docker-entrypoint-initdb.d
       - ./mysql/db:/var/lib/mysql
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
